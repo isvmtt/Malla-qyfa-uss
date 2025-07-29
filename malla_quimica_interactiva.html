@@ -1,0 +1,77 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Malla Interactiva - Química y Farmacia</title>
+  <style>
+    body { font-family: Arial, sans-serif; background: #f9f9f9; padding: 20px; }
+    .semester { margin-bottom: 40px; }
+    .subject {
+      background: white; border: 1px solid #ccc; padding: 15px; border-radius: 8px;
+      margin-bottom: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    .subject-header { display: flex; justify-content: space-between; align-items: center; cursor: pointer; }
+    .subject-details { display: none; margin-top: 10px; font-size: 0.95em; color: #333; }
+    .completed { background: #dff0d8; }
+    .checkbox { margin-right: 10px; }
+  </style>
+</head>
+<body>
+  <h1>Malla Interactiva - Química y Farmacia</h1>
+
+  <div class="semester">
+    <h2>1er Semestre</h2>
+
+    <div class="subject" onclick="toggleDetails(this)">
+      <div class="subject-header">
+        <span><input type="checkbox" class="checkbox" onchange="toggleCompleted(this)">Biología Celular</span>
+        <span>6 CR</span>
+      </div>
+      <div class="subject-details">
+        <p><strong>Prerrequisitos:</strong> Ninguno</p>
+        <p><strong>Competencias:</strong> Conocer la estructura y funciones celulares como base de la biología.</p>
+      </div>
+    </div>
+
+    <div class="subject" onclick="toggleDetails(this)">
+      <div class="subject-header">
+        <span><input type="checkbox" class="checkbox" onchange="toggleCompleted(this)">Química General</span>
+        <span>6 CR</span>
+      </div>
+      <div class="subject-details">
+        <p><strong>Prerrequisitos:</strong> Ninguno</p>
+        <p><strong>Competencias:</strong> Manejar conceptos básicos de la química general para aplicaciones en el área de la salud.</p>
+      </div>
+    </div>
+
+    <div class="subject" onclick="toggleDetails(this)">
+      <div class="subject-header">
+        <span><input type="checkbox" class="checkbox" onchange="toggleCompleted(this)">Matemática I</span>
+        <span>5 CR</span>
+      </div>
+      <div class="subject-details">
+        <p><strong>Prerrequisitos:</strong> Ninguno</p>
+        <p><strong>Competencias:</strong> Desarrollar pensamiento lógico y manejo de funciones matemáticas básicas.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function toggleDetails(element) {
+      const details = element.querySelector('.subject-details');
+      if (details.style.display === 'block') {
+        details.style.display = 'none';
+      } else {
+        details.style.display = 'block';
+      }
+    }
+
+    function toggleCompleted(checkbox) {
+      const subject = checkbox.closest('.subject');
+      subject.classList.toggle('completed', checkbox.checked);
+    }
+  </script>
+</body>
+</html>
